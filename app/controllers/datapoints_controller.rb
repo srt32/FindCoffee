@@ -4,6 +4,17 @@ class DatapointsController < ApplicationController
   def index
     @datapoints = Datapoint.all
 
+    @directions =
+      Gmaps4rails.destination(
+        {"from" => "1154 Corona St, Denver, CO", "to" => "1062 Delaware St, Denver, CO"}, 
+        {
+          "language"  => "en", 
+          "mode"      => "walking",
+          "avoid"     => ["tolls", "highways"]
+        }, 
+        "pretty"
+        )
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @datapoints }

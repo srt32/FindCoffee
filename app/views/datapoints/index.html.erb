@@ -26,4 +26,14 @@
 
 <br />
 
+
 <%= link_to 'New Datapoint', new_datapoint_path %>
+
+<% if false %>
+ <%= gmaps({
+      "direction" => { "data" => {  "from" => "devner, CO", "to" => "Boulder, CO" } }
+    })
+ %>
+<% end %>
+
+<%= @directions %>
