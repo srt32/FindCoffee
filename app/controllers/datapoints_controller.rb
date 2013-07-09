@@ -14,6 +14,7 @@ class DatapointsController < ApplicationController
   # GET /datapoints/1.json
   def show
     @datapoint = Datapoint.find(params[:id])
+    @gmapsJSON = @datapoint.to_gmaps4rails
 
     respond_to do |format|
       format.html # show.html.erb
